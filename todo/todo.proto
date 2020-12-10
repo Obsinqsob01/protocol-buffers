@@ -7,3 +7,19 @@ message Task {
   bool done = 2;
 }
 
+message TaskLists {
+  repeated Task tasks = 1;
+}
+
+message Text {
+  string text = 1;
+}
+
+message Void {
+}
+
+service Tasks {
+  rpc List(Void) returns(TaskLists) {}
+  rpc Add(Text) returns(Task) {}
+}
+
